@@ -1,0 +1,14 @@
+<html>
+<head>
+    <script src="node_modules/knockout/build/output/knockout-latest.debug.js"></script>
+    <script src="vendor/knockout-projections.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Testing long lists of knockout.projections</h1>
+    <dl data-bind="foreach: results">
+        <dt data-bind="text: title"></dt>
+        <dd data-bind="text: result + 'ms'"></dd>
+    </dl>
+</body>
+</html>

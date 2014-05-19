@@ -1,0 +1,7 @@
+{
+    "name": "knockout.projections-examples",
+    "description": "Performance examples for knockout.projections",
+    "dependencies": {
+        "knockout": "3.0.0"
+    }
+}
