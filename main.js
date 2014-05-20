@@ -1,9 +1,9 @@
 (function () {
 
 function SimpleViewModel(data) {
-    this.name = ko.observable(data.name);
-    this.number = ko.observable(data.number);
-    this.array = ko.observableArray(data.array);
+    this.name = ko.computed(data.name);
+    this.number = ko.computed(data.number);
+    this.array = ko.computed(data.array);
 }
 
 var state = {
@@ -38,9 +38,9 @@ function makeArray(length) {
 
 function makeModel() {
     return {
-        name: makeName(randInt(3, 6)),
-        number: randInt(10, 99),
-        array: makeArray(randInt(2, 5))
+        name: ko.observable(makeName(randInt(3, 6))),
+        number: ko.observable(randInt(10, 99)),
+        array: ko.observableArray(makeArray(randInt(2, 5)))
     };
 }
 
@@ -81,9 +81,9 @@ runTest("Simple viewmodel map, ten thousand items", function () {
     makeState(10000);
 });
 
-// runTest("Reverse", function() {
-//     state.models.reverse();
-// });
+runTest("Reverse", function() {
+    state.models.reverse();
+});
 
 var array = state.models();
 var iterations = 5;
@@ -188,6 +188,6 @@ runTest("Replace 3000 elements individually.", function () {
     }
 });
 
-
+makeState(10);
 
 })();
